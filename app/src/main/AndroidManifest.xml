@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tonyzanyar.knowledge">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="应知应会"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TopicActivity"
+            android:label="话题"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".QuestionActivity"
+            android:label="题目"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".SearchActivity"
+            android:label="搜索结果"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".EditTopicActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="编辑话题"/>
+
+        <provider
+            android:name=".data.MyContentProvider"
+            android:authorities="com.tonyzanyar.knowledge"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity android:name=".EditQuestionActivity"
+            android:label="编辑问题"/>
+    </application>
+
+</manifest>

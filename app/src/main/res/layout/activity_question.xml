@@ -48,6 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
+        android:textSize="20sp"
         android:background="@drawable/shape"
         android:text="没问题啊！"
         app:layout_constraintBottom_toTopOf="@id/another_question"

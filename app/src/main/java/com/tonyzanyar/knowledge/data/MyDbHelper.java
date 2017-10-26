@@ -3,6 +3,7 @@ package com.tonyzanyar.knowledge.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import static com.tonyzanyar.knowledge.data.Contract.COLUMN_CONTENT;
 import static com.tonyzanyar.knowledge.data.Contract.COLUMN_NUM;
@@ -18,6 +19,12 @@ import static com.tonyzanyar.knowledge.data.Contract.TWO_TABLE;
  */
 
 public class MyDbHelper extends SQLiteOpenHelper {
+    private static final String TAG = "test1";
+
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        super.onOpen(db);
+    }
 
     private static final String DB_NAME="knowledge.db";
     private static final int DB_VERSION=1;
@@ -25,10 +32,13 @@ public class MyDbHelper extends SQLiteOpenHelper {
 
     public MyDbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+        Log.d(TAG, "MyDbHelper: 数据库第一次构造");
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        Log.d(TAG, "onCreate: 数据库第一次create");
         String c="CREATE TABLE IF NOT EXISTS "+ONE_TABLE+"(" +
                 COLUMN_NUM+" INTEGER PRIMARY KEY,"+
                 COLUMN_TOPIC+" TEXT NOT NULL DEFAULT '" +UN_ADD +"',"+
